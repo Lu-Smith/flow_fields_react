@@ -19,11 +19,11 @@ const MainCanvas: React.FC<MainProps> = ({ mode }) => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight * 0.83;
 
-    const effect = new Effect(canvas);
+    const effect = new Effect(canvas, ctx);
     
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      effect.render(ctx);
+      effect.render();
       requestAnimationFrame(animate);
     };
 
