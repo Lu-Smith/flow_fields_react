@@ -1,8 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-const MainCanvas = () => {
+interface MainProps {
+  mode: string; 
+}
+
+const MainCanvas: React.FC<MainProps> = ({mode}) => {
   return (
-    <div>MainCanvas</div>
+    <div className={`MainCanvas ${mode}`}>
+      MainCanvas
+    </div>
   )
 }
 
