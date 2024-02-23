@@ -52,6 +52,14 @@ export default class Effect {
         this.rows = Math.floor(this.height / this.cellSize);
         this.cols = Math.floor(this.width / this.cellSize);
         this.flowField = [];
+
+        //draw text
+        this.drawText();
+
+        //scan pixel data
+        const pixels = this.context.getImageData(0, 0, this.width, this.height);
+        console.log(pixels);
+
         for (let y = 0; y <this.rows; y++) {
           for ( let x = 0; x <= this.cols; x++) {
             const angle= (Math.cos(x * this.zoom) + Math.sin(y * this.zoom)) + this.curve;
@@ -90,8 +98,10 @@ export default class Effect {
         this.init();
       }
       render(){
-        if (this.debug) this.drawGrid();
-        this.drawText();
+        if (this.debug) {
+          this.drawGrid();
+          this.drawText();
+        } 
         this.particles.forEach(particle => {
           particle.draw(this.context);
           particle.update();
