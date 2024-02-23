@@ -34,8 +34,10 @@ export default class Particle {
         const x = Math.floor(this.x / this.effect.cellSize);
         const y = Math.floor(this.y / this.effect.cellSize);
         const index = y * this.effect.cols + x;
-        this.angle = this.effect.flowField[index];
-    
+        if(this.effect.flowField[index]) {
+          this.angle = this.effect.flowField[index].colorAngle;
+        }
+
         this.speedX = Math.cos(this.angle);
         this.speedY = Math.sin(this.angle);
         this.x += this.speedX * this.speedModifier;
