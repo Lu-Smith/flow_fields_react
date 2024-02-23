@@ -16,8 +16,8 @@ const MainCanvas: React.FC<MainProps> = ({ mode }) => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight * 0.83;
+    canvas.width = 500;
+    canvas.height = 500;
 
     const effect = new Effect(canvas, ctx);
     
@@ -30,8 +30,8 @@ const MainCanvas: React.FC<MainProps> = ({ mode }) => {
     animate();
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight * 0.83;
+      canvas.width = 500;
+      canvas.height = 500;
       effect.resize(canvas.width, canvas.height);
     };
 
