@@ -1,0 +1,10 @@
+.Footer a {
+    color: rgb(243, 221, 151);
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.Footer a.portfolio {
+    margin-right: 5px;
+    color: rgb(183, 238, 119);
+}
