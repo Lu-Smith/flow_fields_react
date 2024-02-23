@@ -7,8 +7,9 @@ import MainCanvas from './components/MainCanvas';
 const App = () => {  
   const [mode, setMode] = useState('light');
 
-  const toggleMode = () => {
-    setMode(prevMode => prevMode === 'light' ? 'dark' : 'light');
+  const toggleMode = (modeName: string) => {
+    setMode(modeName);
+    console.log(modeName)
   };
 
   return (

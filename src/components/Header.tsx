@@ -3,7 +3,7 @@ import '../styles/Header.css';
 
 interface HeaderProps {
   mode: string; 
-  toggleMode: () => void; 
+  toggleMode: (modeName: string) => void; 
 }
 
 const Header: React.FC<HeaderProps> = ({mode, toggleMode}) => {
@@ -11,17 +11,17 @@ const Header: React.FC<HeaderProps> = ({mode, toggleMode}) => {
     <div className={`Header ${mode}`}>
       <div>
         <h2> Choose your mode</h2>
-        <span className="material-symbols-outlined" onClick={toggleMode}>
+        <span className="material-symbols-outlined">
           arrow_forward
         </span>
       </div>
-      <span className="material-symbols-outlined" onClick={toggleMode}>
+      <span className="material-symbols-outlined" onClick={() => toggleMode('light')}>
         wb_sunny
       </span>
-      <span className="material-symbols-outlined" onClick={toggleMode}>
+      <span className="material-symbols-outlined" onClick={() => toggleMode('dark')}>
         nightlight
       </span>
-      <span className="material-symbols-outlined" onClick={toggleMode}>
+      <span className="material-symbols-outlined" onClick={() => toggleMode('bolt')}>
         bolt
       </span>
     </div>
