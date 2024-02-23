@@ -1,18 +1,26 @@
-import './styles/App.css'
-import FooterComponent from './components/FooterComponent'
-import Header from './components/Header'
-import MainCanvas from './components/MainCanvas'
+import './styles/App.css';
+import React, { useState } from 'react';
+import FooterComponent from './components/FooterComponent';
+import Header from './components/Header';
+import MainCanvas from './components/MainCanvas';
 
-function App() {  return (
+const App = () => {  
+  const [mode, setMode] = useState('light');
+
+  const toggleMode = () => {
+    setMode(prevMode => prevMode === 'light' ? 'dark' : 'light');
+  };
+
+  return (
     <div className='App'>
         <div className='HeaderContainer'>
-          <Header />
+          <Header mode={mode} toggleMode={toggleMode} />
         </div>
         <div className='CanvasContainer'>
-          <MainCanvas />
+          <MainCanvas mode={mode} />
         </div>
         <div className='FooterContainer'>
-          <FooterComponent />
+          <FooterComponent mode={mode} />
         </div>
     </div>
   )
