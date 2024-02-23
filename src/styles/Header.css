@@ -1,0 +1,25 @@
+.Header {
+    color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    width: 100vw;
+}
+
+.Header div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.Header span {
+    font-size: 2rem;
+}
+
+.Header div span {
+    font-size: 1.5rem;
+}
