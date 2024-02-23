@@ -28,7 +28,7 @@ export default class Effect {
         this.flowField = [];
         this.curve = 8.5;
         this.zoom = 0.2;
-        this.debug = false;
+        this.debug = true;
         this.init();
   
         window.addEventListener('keydown', e => {
@@ -43,6 +43,8 @@ export default class Effect {
       }
       drawText() {
         this.context.font = '500px Impact';
+        this.context.textAlign = 'center';
+        this.context.textBaseline = 'middle';
         this.context.fillText('JS', this.width * 0.5, this.height * 0.5);
       }
       init() {
