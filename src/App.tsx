@@ -1,10 +1,13 @@
 import './App.css'
+import FooterComponent from './components/FooterComponent'
+import Header from './components/Header'
+import MainCanvas from './components/MainCanvas'
 
-function App() {
-
-  return (
+function App() {  return (
     <>
-      <h1>Hello World</h1>
+      <Header />
+      <MainCanvas />
+      <FooterComponent />
     </>
   )
 }
