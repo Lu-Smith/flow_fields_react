@@ -1,9 +1,13 @@
 import React from 'react';
 import '../styles/Footer.css';
 
-const FooterComponent = () => {
+interface FooterProps {
+  mode: string;  
+}
+
+const FooterComponent: React.FC<FooterProps> = ({mode}) => {
   return (
-    <div className='Footer'>
+    <div className={`Footer ${mode}`}>
         <h3>Coded by 
             <a
              href='https://www.lunasmithart.com/' 
