@@ -13,9 +13,11 @@ export default class Effect {
     zoom: number;
     debug: boolean;
     canvas: HTMLCanvasElement;
+    context: CanvasRenderingContext2D;
   
-      constructor(canvas: HTMLCanvasElement) {
+      constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
         this.canvas = canvas;
+        this.context = ctx;
         this.width = this.canvas.width;
         this.height =this.canvas. height;
         this.particles = [];
@@ -39,6 +41,10 @@ export default class Effect {
           }
         })
       }
+      drawText() {
+        this.context.font = '500px Impact';
+        this.context.fillText('JS', this.width * 0.5, this.height * 0.5);
+      }
       init() {
         //create flow field
         this.rows = Math.floor(this.height / this.cellSize);
@@ -56,23 +62,23 @@ export default class Effect {
           this.particles.push(new Particle(this));
         }
       }
-      drawGrid(context: CanvasRenderingContext2D) {
-        context.save();
-        context.strokeStyle = 'red';
-        context.lineWidth = 0.4;
+      drawGrid() {
+        this.context.save();
+        this.context.strokeStyle = 'red';
+        this.context.lineWidth = 0.4;
         for ( let c = 0; c < this.cols; c++) {
-          context.beginPath();
-          context.moveTo(this.cellSize * c, 0);
-          context.lineTo(this.cellSize * c, this.height);
-          context.stroke();
+          this.context.beginPath();
+          this.context.moveTo(this.cellSize * c, 0);
+          this.context.lineTo(this.cellSize * c, this.height);
+          this.context.stroke();
         }
         for ( let r = 0; r < this.rows; r++) {
-          context.beginPath();
-          context.moveTo(0, this.cellSize * r);
-          context.lineTo(this.width, this.cellSize * r);
-          context.stroke();
+          this.context.beginPath();
+          this.context.moveTo(0, this.cellSize * r);
+          this.context.lineTo(this.width, this.cellSize * r);
+          this.context.stroke();
         }
-        context.restore();
+        this.context.restore();
       }
       resize(width: number, height: number) {
         this.canvas.width = width;
@@ -81,10 +87,11 @@ export default class Effect {
         this.height =this.canvas. height;
         this.init();
       }
-      render(context: CanvasRenderingContext2D){
-        if (this.debug) this.drawGrid(context);
+      render(){
+        if (this.debug) this.drawGrid();
+        this.drawText();
         this.particles.forEach(particle => {
-          particle.draw(context);
+          particle.draw(this.context);
           particle.update();
         })
       }
