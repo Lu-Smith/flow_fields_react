@@ -4,11 +4,17 @@ import Header from './components/Header'
 import MainCanvas from './components/MainCanvas'
 
 function App() {  return (
-    <>
-      <Header />
-      <MainCanvas />
-      <FooterComponent />
-    </>
+    <div className='App'>
+        <div className='HeaderContainer'>
+          <Header />
+        </div>
+        <div className='CanvasContainer'>
+          <MainCanvas />
+        </div>
+        <div className='FooterContainer'>
+          <FooterComponent />
+        </div>
+    </div>
   )
 }
 
