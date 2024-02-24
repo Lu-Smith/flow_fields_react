@@ -1,4 +1,11 @@
-canvas {
+.MainCanvas.light canvas {
+    background-color: #1b251b;
+}
+
+.MainCanvas.dark canvas {
     background-color: black;
-    color: white;
+}
+
+.MainCanvas.bolt canvas {
+    background-color: #112714;
 }
