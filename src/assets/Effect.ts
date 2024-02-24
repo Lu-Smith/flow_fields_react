@@ -17,12 +17,13 @@ export default class Effect {
   
       constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
         this.canvas = canvas;
+        this.canvas.setAttribute('willReadFrequently', 'true');
         this.context = ctx;
         this.width = this.canvas.width;
         this.height =this.canvas. height;
         this.particles = [];
         this.numberOfParticles = 1600;
-        this.cellSize = 20;
+        this.cellSize = 5;
         this.rows = 0;
         this.cols = 0;
         this.flowField = [];
@@ -42,11 +43,26 @@ export default class Effect {
         })
       }
       drawText() {
-        this.context.font = '500px Impact';
+        this.context.font = '450px Impact';
         this.context.textAlign = 'center';
         this.context.textBaseline = 'middle';
-        this.context.fillStyle = 'red';
-        this.context.fillText('JS', this.width * 0.5, this.height * 0.5);
+
+        const gradient1 = this.context.createLinearGradient(0, 0, this.width, this.height);
+        gradient1.addColorStop(0.2, 'rgb(242, 0, 0)');
+        gradient1.addColorStop(0.4, 'rgb(0, 255, 0)');
+        gradient1.addColorStop(0.6, 'rgb(150, 100, 100)');
+        gradient1.addColorStop(0.8, 'rgb(0, 255, 255)');
+
+        const gradient2 = this.context.createLinearGradient(0, 0, this.width, this.height);
+        gradient2.addColorStop(0.2, 'rgb(242, 0, 0)');
+        gradient2.addColorStop(0.4, 'rgb(0, 255, 0)');
+        gradient2.addColorStop(0.6, 'rgb(250, 200, 200)');
+        gradient2.addColorStop(0.8, 'rgb(0, 255, 255)');
+
+        this.context.fillStyle = gradient2;
+        this.context.fillText('LS', this.width * 0.5, this.height * 0.5, this.width * 0.8);
+
+        
       }
       init() {
         //create flow field
@@ -59,6 +75,7 @@ export default class Effect {
 
         //scan pixel data
         const pixels = this.context.getImageData(0, 0, this.width, this.height).data;
+     
         for (let y = 0; y < this.height; y+= this.cellSize) {
           for ( let x = 0; x < this.width; x += this.cellSize) {
             const index = (y * this.width + x) * 4;
