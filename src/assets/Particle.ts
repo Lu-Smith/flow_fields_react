@@ -22,14 +22,14 @@ export default class Particle {
       this.y = Math.floor(Math.random() * this.effect.height);
       this.speedX = 0;
       this.speedY = 0;
-      this.speedModifier = Math.floor(Math.random() * 5 + 1);
+      this.speedModifier = Math.floor(Math.random() * 2 + 1);
       this.history = [{x: this.x, y: this.y}];
-      this.maxLength = Math.floor(Math.random() * 200 + 10);
+      this.maxLength = Math.floor(Math.random() * 60 + 20);
       this.angle = 0;
       this.newAngle = 0;
-      this.angleCorrection = 0.05;
+      this.angleCorrection = Math.random() * 0.5 + 0.01;
       this.timer = this.maxLength * 2;
-      this.colors = ['#025919', '#128230', '#42b031', '#6ad15a'];
+      this.colors = ['#025919', '#128230', '#42b031', '#6ad15a', '#fff'];
       this.color = this.colors[Math.floor(Math.random() * this.colors.length)];
     }
     update() {
@@ -75,9 +75,25 @@ export default class Particle {
       context.stroke();
     }
     reset() {
-      this.x = Math.floor(Math.random() * this.effect.width);
-      this.y = Math.floor(Math.random() * this.effect.height);
-      this.history = [{x: this.x, y: this.y}];
-      this.timer = this.maxLength * 2;
+      let attemps = 0;
+      let resetSuccess = false;
+
+      while (attemps < 10 && ! resetSuccess) {
+        attemps++;
+        const testIndex = Math.floor(Math.random() * this.effect.flowField.length);
+        if (this.effect.flowField[testIndex].alpha > 0) {
+          this.x = this.effect.flowField[testIndex].x;
+          this.y = this.effect.flowField[testIndex].y;
+          this.history = [{x: this.x, y: this.y}];
+          this.timer = this.maxLength * 2;
+          resetSuccess = true;
+        }
+      }
+      if (!resetSuccess) {
+        this.x = Math.random() * this.effect.width;
+        this.y = Math.random() * this.effect.height;
+        this.history = [{x: this.x, y: this.y}];
+        this.timer = this.maxLength * 2;
+      }
     }
   }
