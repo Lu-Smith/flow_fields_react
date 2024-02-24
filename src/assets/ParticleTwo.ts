@@ -29,7 +29,7 @@ export default class ParticleTwo {
       this.newAngle = 0;
       this.angleCorrection = Math.random() * 0.8 + 0.01;
       this.timer = this.maxLength * 2;
-      this.colors = ['#095385', '#2675ab', '#54a1d6', '#85bee6', '#b6d8f0'];
+      this.colors = ['#340438', '#2675ab', '#54a1d6', '#85bee6', '#b6d8f0'];
       this.color = this.colors[Math.floor(Math.random() * this.colors.length)];
     }
     update() {
