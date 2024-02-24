@@ -24,12 +24,12 @@ export default class Particle {
       this.speedY = 0;
       this.speedModifier = Math.floor(Math.random() * 2 + 1);
       this.history = [{x: this.x, y: this.y}];
-      this.maxLength = Math.floor(Math.random() * 60 + 20);
+      this.maxLength = Math.floor(Math.random() * 20 + 6);
       this.angle = 0;
       this.newAngle = 0;
-      this.angleCorrection = Math.random() * 0.5 + 0.01;
+      this.angleCorrection = Math.random() * 0.8 + 0.01;
       this.timer = this.maxLength * 2;
-      this.colors = ['#025919', '#128230', '#42b031', '#6ad15a', '#fff'];
+      this.colors = ['#025919', '#128230', '#42b031', '#6ad15a', '#f2f249'];
       this.color = this.colors[Math.floor(Math.random() * this.colors.length)];
     }
     update() {
