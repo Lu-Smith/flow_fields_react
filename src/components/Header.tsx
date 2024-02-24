@@ -10,12 +10,8 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({mode, toggleMode}) => {
   return (
     <div className={`Header ${mode}`}>
+      <h1 className='title'>Flow Fields</h1>
       <div>
-        <h2> Choose your mode</h2>
-        <span className="material-symbols-outlined">
-          arrow_forward
-        </span>
-      </div>
       <motion.div  whileHover={{ scale: 1.3 }} whileTap={{ scale: 1.1 }}>
         <span className="material-symbols-outlined light" onClick={() => toggleMode('light')}>
           wb_sunny
@@ -31,6 +27,9 @@ const Header: React.FC<HeaderProps> = ({mode, toggleMode}) => {
           bolt
         </span>
       </motion.div>
+
+      </div>
+      
     </div>
   )
 }
