@@ -17,7 +17,7 @@ const MainCanvas: React.FC<MainProps> = ({ mode }) => {
     if (!ctx) return;
 
     canvas.width = 500;
-    canvas.height = 500;
+    canvas.height = 300;
 
     const effect = new Effect(canvas, ctx);
     
@@ -31,7 +31,7 @@ const MainCanvas: React.FC<MainProps> = ({ mode }) => {
 
     const handleResize = () => {
       canvas.width = 500;
-      canvas.height = 500;
+      canvas.height = 300;
       effect.resize(canvas.width, canvas.height);
     };
 
