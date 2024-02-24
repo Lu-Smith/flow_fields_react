@@ -21,7 +21,7 @@
 }
 
 .Footer.bolt a {
-    color: #2c833a;
+    color: #ebe4bc;
 }
 
 .Footer a:hover {
@@ -37,4 +37,10 @@
 
 .Footer a.portfolio {
     margin-right: 5px;
+}
+
+@media screen and (max-width: 786px) {
+    .Footer {
+        font-size: 0.8rem;
+    }
 }
