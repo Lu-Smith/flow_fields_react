@@ -59,10 +59,14 @@ export default class Effect {
         gradient2.addColorStop(0.6, 'rgb(250, 200, 200)');
         gradient2.addColorStop(0.8, 'rgb(0, 255, 255)');
 
-        this.context.fillStyle = gradient2;
-        this.context.fillText('LS', this.width * 0.5, this.height * 0.5, this.width * 0.8);
+        const gradient3 = this.context.createRadialGradient(this.width * 0.5, this.height * 0.5, 10, this.width * 0.5, this.height * 0.5, this.width);
+        gradient3.addColorStop(0.3, 'rgb(0, 0, 255)');
+        gradient3.addColorStop(0.4, 'rgb(200, 255, 0)');
+        gradient3.addColorStop(0.6, 'rgb(0, 0, 255)');
+        gradient3.addColorStop(0.8, 'rgb(0, 0, 0)');
 
-        
+        this.context.fillStyle = gradient3;
+        this.context.fillText('LS', this.width * 0.5, this.height * 0.5, this.width * 0.8);
       }
       init() {
         //create flow field
