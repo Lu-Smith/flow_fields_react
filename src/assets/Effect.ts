@@ -20,7 +20,7 @@ export default class Effect {
         this.width = this.canvas.width;
         this.height =this.canvas. height;
         this.particles = [];
-        this.numberOfParticles = 2000;
+        this.numberOfParticles = 2800;
         this.cellSize = 5;
         this.rows = 0;
         this.cols = 0;
@@ -39,7 +39,7 @@ export default class Effect {
         })
       }
       drawText() {
-        this.context.font = '450px Impact';
+        this.context.font = '250px Impact';
         this.context.textAlign = 'center';
         this.context.textBaseline = 'middle';
 
@@ -56,13 +56,13 @@ export default class Effect {
         gradient2.addColorStop(0.8, 'rgb(0, 255, 255)');
 
         const gradient3 = this.context.createRadialGradient(this.width * 0.5, this.height * 0.5, 10, this.width * 0.5, this.height * 0.5, this.width);
-        gradient3.addColorStop(0.3, 'rgb(0, 0, 255)');
-        gradient3.addColorStop(0.4, 'rgb(200, 255, 0)');
-        gradient3.addColorStop(0.6, 'rgb(0, 0, 255)');
-        gradient3.addColorStop(0.8, 'rgb(0, 0, 0)');
+        gradient3.addColorStop(0.15, 'rgb(0, 100, 255)');
+        gradient3.addColorStop(0.35, 'rgb(200, 255, 0)');
+        gradient3.addColorStop(0.7, 'rgb(50, 0, 255)');
+        gradient3.addColorStop(0.9, 'rgb(0, 50, 0)');
 
         this.context.fillStyle = gradient3;
-        this.context.fillText('LS', this.width * 0.5, this.height * 0.5, this.width * 0.8);
+        this.context.fillText('CAT', this.width * 0.5, this.height * 0.5, this.width * 0.85);
       }
       init() {
         //create flow field
@@ -98,6 +98,7 @@ export default class Effect {
         for( let i = 0; i < this.numberOfParticles; i++) {
           this.particles.push(new Particle(this));
         }
+        this.particles.forEach(particle => particle.reset());
       }
       drawGrid() {
         this.context.save();
