@@ -10,12 +10,12 @@ import { motion} from 'framer-motion';
 import CanvasFour from './components/CanvasFour';
 
 const childVariantsR = {
-  hidden: { x: -500, opacity: 0 },
+  hidden: { x: -270, opacity: 0 },
   visible: { x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } },
 };
 
 const childVariantsL = {
-  hidden: { x: 500, opacity: 0 },
+  hidden: { x: 270, opacity: 0 },
   visible: { x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } },
 };
 
@@ -24,7 +24,6 @@ const App = () => {
 
   const toggleMode = (modeName: string) => {
     setMode(modeName);
-    console.log(modeName)
   };
 
   return (
