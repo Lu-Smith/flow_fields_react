@@ -9,6 +9,8 @@ export default class Particle {
     history: [{x: number, y: number}];
     maxLength: number;
     angle: number;
+    newAngle: number;
+    angleCorrection: number;
     speedModifier: number;
     timer: number;
     color: string;
@@ -24,6 +26,8 @@ export default class Particle {
       this.history = [{x: this.x, y: this.y}];
       this.maxLength = Math.floor(Math.random() * 200 + 10);
       this.angle = 0;
+      this.newAngle = 0;
+      this.angleCorrection = 0.05;
       this.timer = this.maxLength * 2;
       this.colors = ['#025919', '#128230', '#42b031', '#6ad15a'];
       this.color = this.colors[Math.floor(Math.random() * this.colors.length)];
@@ -36,7 +40,14 @@ export default class Particle {
         const index = y * this.effect.cols + x;
         
         if(this.effect.flowField[index]) {
-          this.angle = this.effect.flowField[index].colorAngle;
+          this.newAngle = this.effect.flowField[index].colorAngle;
+          if ( this.angle > this.newAngle) {
+            this.angle -= this.angleCorrection;
+          } else if ( this.angle < this.newAngle) {
+            this.angle += this.angleCorrection;
+          } else {
+            this.angle = this.newAngle;
+          }
         }
 
         this.speedX = Math.cos(this.angle);
