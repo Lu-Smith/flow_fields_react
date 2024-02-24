@@ -15,13 +15,13 @@ const Header: React.FC<HeaderProps> = ({mode, toggleMode}) => {
           arrow_forward
         </span>
       </div>
-      <span className="material-symbols-outlined" onClick={() => toggleMode('light')}>
+      <span className="material-symbols-outlined light" onClick={() => toggleMode('light')}>
         wb_sunny
       </span>
-      <span className="material-symbols-outlined" onClick={() => toggleMode('dark')}>
+      <span className="material-symbols-outlined dark" onClick={() => toggleMode('dark')}>
         nightlight
       </span>
-      <span className="material-symbols-outlined" onClick={() => toggleMode('bolt')}>
+      <span className="material-symbols-outlined bolt" onClick={() => toggleMode('bolt')}>
         bolt
       </span>
     </div>
