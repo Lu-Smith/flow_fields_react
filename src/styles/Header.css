@@ -1,11 +1,11 @@
 .Header {
-    color: yellow;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     gap: 10px;
     width: 100vw;
+    height: 100%;
 }
 
 .Header div {
@@ -18,8 +18,53 @@
 
 .Header span {
     font-size: 2rem;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+    text-shadow: 2px 2px 2px rgba(247, 195, 97, 0.5);
+}
+
+.Header.light span {
+    background-color: #faf6e9;
+}
+
+.Header.dark span {
+    background-color: #3a4042;
+}
+
+.Header.bolt span {
+    background-color: #613864;
+}
+
+.Header span:hover {
+    color: #8ecccc;
+    text-shadow: none;
+}
+
+.Header .light {
+    color: #f1af36;
+}
+
+.Header .dark {
+    color: #ecd20e;
+}
+
+.Header .bolt {
+    color: #ff004d;
 }
 
 .Header div span {
     font-size: 1.5rem;
+    text-shadow: none;
+}
+
+.Header.light div span {
+    color: #494949;
+}
+
+.Header.dark div span {
+    color: #8ecccc;
+}
+
+.Header.bolt div span {
+    color: #d8d7d7;
 }
