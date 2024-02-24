@@ -1,0 +1,16 @@
+.CanvasTwo canvas {
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.CanvasTwo.light canvas {
+    background-color: #282727;
+}
+
+.CanvasTwo.dark canvas {
+    background-color: black;
+}
+
+.CanvasTwo.bolt canvas {
+    background-color: #261127;
+}
