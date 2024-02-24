@@ -8,9 +8,7 @@ export default class Effect {
     cellSize: number;
     rows: number;
     cols: number;
-    flowField: { x: number, y: number, colorAngle: number}[];
-    curve: number;
-    zoom: number;
+    flowField: { x: number, y: number, alpha: number, colorAngle: number}[];
     debug: boolean;
     canvas: HTMLCanvasElement;
     context: CanvasRenderingContext2D;
@@ -22,13 +20,11 @@ export default class Effect {
         this.width = this.canvas.width;
         this.height =this.canvas. height;
         this.particles = [];
-        this.numberOfParticles = 1600;
+        this.numberOfParticles = 2000;
         this.cellSize = 5;
         this.rows = 0;
         this.cols = 0;
         this.flowField = [];
-        this.curve = 8.5;
-        this.zoom = 0.2;
         this.debug = true;
         this.init();
   
@@ -92,17 +88,11 @@ export default class Effect {
             this.flowField.push({
               x: x, 
               y: y,
+              alpha: alpha,
               colorAngle: colorAngle
             });
           }
         }
-
-        // for (let y = 0; y <this.rows; y++) {
-        //   for ( let x = 0; x <= this.cols; x++) {
-        //     const angle= (Math.cos(x * this.zoom) + Math.sin(y * this.zoom)) + this.curve;
-        //     this.flowField.push(angle);
-        //   }
-        // }
         //create particles
         this.particles = [];
         for( let i = 0; i < this.numberOfParticles; i++) {
