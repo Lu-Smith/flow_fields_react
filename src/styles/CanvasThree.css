@@ -1,0 +1,16 @@
+.CanvasThree canvas {
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.CanvasThree.light canvas {
+    background-color: #282727;
+}
+
+.CanvasThree.dark canvas {
+    background-color: black;
+}
+
+.CanvasThree.bolt canvas {
+    background-color: #261127;
+}
