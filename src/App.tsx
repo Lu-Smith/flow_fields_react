@@ -1,5 +1,5 @@
 import './styles/App.css';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import FooterComponent from './components/FooterComponent';
 import Header from './components/Header';
 import MainCanvas from './components/MainCanvas';
