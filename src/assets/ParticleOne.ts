@@ -29,7 +29,7 @@ export default class ParticleOne {
       this.newAngle = 0;
       this.angleCorrection = Math.random() * 0.8 + 0.01;
       this.timer = this.maxLength * 2;
-      this.colors = ['#4c085e', '#6d1e82', '#9543ab', '#c47ed6', '#c90e40'];
+      this.colors = ['#340438', '#6d1e82', '#9543ab', '#c47ed6', '#c90e40'];
       this.color = this.colors[Math.floor(Math.random() * this.colors.length)];
     }
     update() {
