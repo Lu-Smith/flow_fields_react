@@ -16,8 +16,13 @@ const CanvasOne: React.FC<MainProps> = ({ mode }) => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    canvas.width = 500;
-    canvas.height = 300;
+    if ( window.innerWidth > 520) {
+      canvas.width = 500;
+      canvas.height = 300;
+    } else {
+      canvas.width = 300;
+      canvas.height = 300;
+    }
 
     const effect = new EffectOne(canvas, ctx);
     
@@ -30,8 +35,13 @@ const CanvasOne: React.FC<MainProps> = ({ mode }) => {
     animate();
 
     const handleResize = () => {
-      canvas.width = 500;
-      canvas.height = 300;
+      if ( window.innerWidth > 520) {
+        canvas.width = 500;
+        canvas.height = 300;
+      } else {
+        canvas.width = 300;
+        canvas.height = 300;
+      }
       effect.resize(canvas.width, canvas.height);
     };
 
