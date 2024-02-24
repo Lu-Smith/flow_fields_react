@@ -1,0 +1,17 @@
+.CanvasFour canvas {
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.CanvasFour.light canvas {
+    border: 5px solid #ece8d9;
+}
+
+.CanvasFour.dark canvas {
+    border: 5px solid black;
+}
+
+.CanvasFour.bolt canvas {
+    border: 5px solid #fe4e6e;
+    background-color: rgb(233, 178, 205);
+}
