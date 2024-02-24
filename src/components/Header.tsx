@@ -27,9 +27,7 @@ const Header: React.FC<HeaderProps> = ({mode, toggleMode}) => {
           bolt
         </span>
       </motion.div>
-
       </div>
-      
     </div>
   )
 }
