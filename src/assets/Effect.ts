@@ -25,7 +25,7 @@ export default class Effect {
         this.rows = 0;
         this.cols = 0;
         this.flowField = [];
-        this.debug = true;
+        this.debug = false;
         this.init();
   
         window.addEventListener('keydown', e => {
@@ -42,18 +42,6 @@ export default class Effect {
         this.context.font = '250px Impact';
         this.context.textAlign = 'center';
         this.context.textBaseline = 'middle';
-
-        const gradient1 = this.context.createLinearGradient(0, 0, this.width, this.height);
-        gradient1.addColorStop(0.2, 'rgb(242, 0, 0)');
-        gradient1.addColorStop(0.4, 'rgb(0, 255, 0)');
-        gradient1.addColorStop(0.6, 'rgb(150, 100, 100)');
-        gradient1.addColorStop(0.8, 'rgb(0, 255, 255)');
-
-        const gradient2 = this.context.createLinearGradient(0, 0, this.width, this.height);
-        gradient2.addColorStop(0.2, 'rgb(242, 0, 0)');
-        gradient2.addColorStop(0.4, 'rgb(0, 255, 0)');
-        gradient2.addColorStop(0.6, 'rgb(250, 200, 200)');
-        gradient2.addColorStop(0.8, 'rgb(0, 255, 255)');
 
         const gradient3 = this.context.createRadialGradient(this.width * 0.5, this.height * 0.5, 10, this.width * 0.5, this.height * 0.5, this.width);
         gradient3.addColorStop(0.15, 'rgb(0, 100, 255)');
