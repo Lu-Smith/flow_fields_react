@@ -1,4 +1,11 @@
-canvas {
+.CanvasOne.light canvas {
+    background-color: #282727;
+}
+
+.CanvasOne.dark canvas {
     background-color: black;
-    color: white;
+}
+
+.CanvasOne.bolt canvas {
+    background-color: #261127;
 }
