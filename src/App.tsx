@@ -14,15 +14,15 @@ const App = () => {
   };
 
   return (
-    <div className='App'>
-        <div className='HeaderContainer'>
+    <div className={`App ${mode}`}>
+        <div className={`HeaderContainer ${mode}`}>
           <Header mode={mode} toggleMode={toggleMode} />
         </div>
-        <div className='CanvasContainer'>
+        <div className={`CanvasContainer ${mode}`}>
           <MainCanvas mode={mode} />
           <CanvasOne mode={mode}/>
         </div>
-        <div className='FooterContainer'>
+        <div className={`FooterContainer ${mode}`}>
           <FooterComponent mode={mode} />
         </div>
     </div>
