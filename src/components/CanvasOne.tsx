@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import '../styles/CanvasOne.css';
-import Effect from '../assets/Effect';
+import EffectOne from '../assets/EffectOne';
 
 interface MainProps {
   mode: string;
@@ -19,7 +19,7 @@ const CanvasOne: React.FC<MainProps> = ({ mode }) => {
     canvas.width = 500;
     canvas.height = 300;
 
-    const effect = new Effect(canvas, ctx);
+    const effect = new EffectOne(canvas, ctx);
     
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
