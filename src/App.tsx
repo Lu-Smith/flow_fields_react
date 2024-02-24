@@ -4,6 +4,8 @@ import FooterComponent from './components/FooterComponent';
 import Header from './components/Header';
 import MainCanvas from './components/MainCanvas';
 import CanvasOne from './components/CanvasOne';
+import CanvasTwo from './components/CanvasTwo';
+import CanvasThree from './components/CanvasThree';
 
 const App = () => {  
   const [mode, setMode] = useState('light');
@@ -20,7 +22,9 @@ const App = () => {
         </div>
         <div className={`CanvasContainer ${mode}`}>
           <MainCanvas mode={mode} />
+          <CanvasThree mode={mode}/>
           <CanvasOne mode={mode}/>
+          <CanvasTwo mode={mode}/>
         </div>
         <div className={`FooterContainer ${mode}`}>
           <FooterComponent mode={mode} />
